@@ -124,8 +124,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonTrans1" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace pref="622" max="32767" attributes="0"/>
+                          <Component id="btnTambahAlternatif" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                          <Component id="btnHapusAlternatif" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace pref="350" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                              <Component id="btnEditAlternatif" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace pref="486" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -133,17 +142,46 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonTrans1" pref="38" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnTambahAlternatif" alignment="3" pref="38" max="32767" attributes="0"/>
+                              <Component id="btnHapusAlternatif" alignment="3" pref="38" max="32767" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnEditAlternatif" pref="38" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="app.ButtonTrans" name="buttonTrans1">
+                <Component class="app.ButtonTrans" name="btnTambahAlternatif">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+ Alternatif"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTambahAlternatifActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="app.ButtonTrans" name="btnHapusAlternatif">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Edit "/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHapusAlternatifActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="app.ButtonTrans" name="btnEditAlternatif">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Edit"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditAlternatifActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -170,6 +208,12 @@
                       </Table>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabelAlternatifMouseClicked"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -203,8 +247,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonTrans2" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace pref="612" max="32767" attributes="0"/>
+                          <Component id="btnTambahKriteria" min="-2" pref="130" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnEditKriteria" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="btnHapusKriteria" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace pref="348" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -212,16 +260,33 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonTrans2" pref="38" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnTambahKriteria" alignment="3" pref="38" max="32767" attributes="0"/>
+                              <Component id="btnEditKriteria" alignment="3" pref="38" max="32767" attributes="0"/>
+                              <Component id="btnHapusKriteria" alignment="3" pref="38" max="32767" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="app.ButtonTrans" name="buttonTrans2">
+                <Component class="app.ButtonTrans" name="btnTambahKriteria">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+ Kriteria"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTambahKriteriaActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="app.ButtonTrans" name="btnEditKriteria">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Edit"/>
+                  </Properties>
+                </Component>
+                <Component class="app.ButtonTrans" name="btnHapusKriteria">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Hapus"/>
                   </Properties>
                 </Component>
               </SubComponents>
