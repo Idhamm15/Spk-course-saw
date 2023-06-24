@@ -68,9 +68,6 @@ public class SPK extends javax.swing.JFrame {
         tabelAlternatif = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        btnTambahKriteria = new app.ButtonTrans();
-        btnEditKriteria = new app.ButtonTrans();
-        btnHapusKriteria = new app.ButtonTrans();
         txtCariKriteria = new javax.swing.JTextField();
         btnCariKriteria = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -180,14 +177,13 @@ public class SPK extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTambahAlternatif, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(btnHapusAlternatif, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(btnEditAlternatif, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtCariAlternatif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCariAlternatif))
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnTambahAlternatif, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                        .addComponent(btnHapusAlternatif, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                        .addComponent(btnEditAlternatif, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)))
+                        .addComponent(btnCariAlternatif)))
                 .addContainerGap())
         );
 
@@ -219,22 +215,6 @@ public class SPK extends javax.swing.JFrame {
 
         jPanel7.setPreferredSize(new java.awt.Dimension(748, 50));
 
-        btnTambahKriteria.setText("+ Kriteria");
-        btnTambahKriteria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahKriteriaActionPerformed(evt);
-            }
-        });
-
-        btnEditKriteria.setText("Edit");
-
-        btnHapusKriteria.setText("Hapus");
-        btnHapusKriteria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusKriteriaActionPerformed(evt);
-            }
-        });
-
         txtCariKriteria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCariKriteriaActionPerformed(evt);
@@ -242,32 +222,28 @@ public class SPK extends javax.swing.JFrame {
         });
 
         btnCariKriteria.setText("Cari");
+        btnCariKriteria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariKriteriaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnTambahKriteria, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditKriteria, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnHapusKriteria, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addComponent(txtCariKriteria, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCariKriteria)
-                .addGap(97, 97, 97))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambahKriteria, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(btnEditKriteria, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(btnHapusKriteria, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(txtCariKriteria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCariKriteria))
                 .addContainerGap())
@@ -359,12 +335,6 @@ public class SPK extends javax.swing.JFrame {
         UpdateDataAlternatif();
     }//GEN-LAST:event_btnEditAlternatifActionPerformed
 
-    private void btnTambahKriteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahKriteriaActionPerformed
-        // TODO add your handling code here:
-        TambahKriteria TK = new TambahKriteria(this, true);
-        TK.setVisible(true); 
-    }//GEN-LAST:event_btnTambahKriteriaActionPerformed
-
     private void btnTambahAlternatifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahAlternatifActionPerformed
         // TODO add your handling code here:
         TambahAlternatif TA = new TambahAlternatif(this, true);
@@ -414,15 +384,15 @@ public class SPK extends javax.swing.JFrame {
     private void btnCariAlternatifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariAlternatifActionPerformed
         // TODO add your handling code here:
         String key = txtCariAlternatif.getText();
-        String where = "select * from alternatif WHERE"
-                + " id LIKE '%"+key+"%' OR "
-                + "alternatif '%"+key+"%' OR "
+        String where = " WHERE "
+                + "id LIKE '%"+key+"%' OR "
+                + "alternatif LIKE '%"+key+"%' OR "
                 + "harga LIKE '%"+key+"%' OR "
                 + "jml_ulasan_p LIKE '%"+key+"%' OR "
-                + "pretasi_mentor LIKE '%"+key+"%' OR "
+                + "prestasi_mentor LIKE '%"+key+"%' OR "
                 + "kecepatan_server LIKE '%"+key+"%' OR "
                 + "tk_pemakaian LIKE '%"+key+"%'";
-        loadAlternatif("SELECT "+where);
+        loadAlternatif(where);
     }//GEN-LAST:event_btnCariAlternatifActionPerformed
 
     private void tabelKriteriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelKriteriaMouseClicked
@@ -449,10 +419,15 @@ public class SPK extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tabelKriteriaMouseClicked
 
-    private void btnHapusKriteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusKriteriaActionPerformed
+    private void btnCariKriteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariKriteriaActionPerformed
         // TODO add your handling code here:
-        HapusDataKriteria();
-    }//GEN-LAST:event_btnHapusKriteriaActionPerformed
+        String key = txtCariKriteria.getText();
+        String where = " WHERE "
+                + "id LIKE '%"+key+"%' OR "
+                + "kriteria LIKE '%"+key+"%' OR "
+                + "bobot LIKE '%"+key+"%'";
+        loadKriteria(where);
+    }//GEN-LAST:event_btnCariKriteriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -497,11 +472,8 @@ public class SPK extends javax.swing.JFrame {
     private javax.swing.JButton btnCariAlternatif;
     private javax.swing.JButton btnCariKriteria;
     private app.ButtonTrans btnEditAlternatif;
-    private app.ButtonTrans btnEditKriteria;
     private app.ButtonTrans btnHapusAlternatif;
-    private app.ButtonTrans btnHapusKriteria;
     private app.ButtonTrans btnTambahAlternatif;
-    private app.ButtonTrans btnTambahKriteria;
     private app.ButtonTrans buttonTrans3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
