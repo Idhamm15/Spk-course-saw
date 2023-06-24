@@ -619,10 +619,8 @@ public class SPK extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Anda belum memilih Data"); 
         }
     }
-    
-    
 
-    private void SPK() {
+ private void SPK() {
         try {
             Object[] header = {"NO","ALTERNATIF","BOBOT"};
             Object[][] data = null;
@@ -675,6 +673,76 @@ public class SPK extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+
+//    private void SPK() {
+//        try {
+//            Object[] header = {"NO","ALTERNATIF","BOBOT"};
+//            Object[][] data = null;
+//            DefaultTableModel model = new DefaultTableModel(data, header);
+//            tabelSPK.setModel(model); 
+//            int nomor = 0;
+//            
+//            //
+//            List<Double> L_hasil = new ArrayList();
+//            List<String> L_alternatif = new ArrayList<>();
+//            
+//            Connection c = Koneksi.konekKeDB();
+//            Statement st = c.createStatement();
+//            String q = "SELECT * FROM alternatif";
+//            ResultSet rs = st.executeQuery(q);
+//            while (rs.next()) {
+//                int id = rs.getInt("id");
+//                String alternatif = rs.getString("alternatif");
+//
+//                double harga = rs.getDouble("harga");
+//                double jml_ulasan_p = rs.getDouble("jml_ulasan_p");
+//                double prestasi_mentor = rs.getDouble("prestasi_mentor");
+//                double kecepatan_server = rs.getDouble("kecepatan_server");
+//                double tk_pemakaian = rs.getDouble("tk_pemakaian");
+////                double keawetan = rs.getDouble("keawetan");
+//
+//                double pem_harga = label("harga").equals("cost") ? MIN("harga") : MAX("harga");
+//                double pem_jml_ulasan_p = label("jml_ulasan_p").equals("cost") ? MIN("jml_ulasan_p") : MAX("jml_ulasan_p");
+//                double pem_prestasi_mentor = label("prestasi_mentor").equals("cost") ? MIN("prestasi_mentor") : MAX("prestasi_mentor");
+//                double pem_kecepatan_server = label("kecepatan_server").equals("cost") ? MIN("kecepatan_server") : MAX("kecepatan_server");
+//                double pem_tk_pemakaian = label("tk_pemakaian").equals("cost") ? MIN("tk_pemakaian") : MAX("tk_pemakaian");
+////                double pem_keawetan = label("keawetan").equals("cost") ? MIN("keawetan") : MAX("keawetan");
+//                
+//                double norm_harga = label("harga").equals("cost") ? MIN("harga")/harga : harga/MAX("harga");
+//                double norm_jml_ulasan_p = label("jml_ulasan_p").equals("cost") ? MIN("jml_ulasan_p")/jml_ulasan_p : jml_ulasan_p/MAX("jml_ulasan_p");
+//                double norm_prestasi_mentor = label("prestasi_mentor").equals("cost") ? MIN("prestasi_mentor")/prestasi_mentor : prestasi_mentor/MAX("prestasi_mentor");
+//                double norm_kecepatan_server = label("kecepatan_server").equals("cost") ? MIN("kecepatan_server")/kecepatan_server : kecepatan_server/MAX("kecepatan_server");
+//                double norm_tk_pemakaian = label("tk_pemakaian").equals("cost") ? MIN("tk_pemakaian")/tk_pemakaian : tk_pemakaian/MAX("tk_pemakaian");
+////                double norm_keawetan = label("keawetan").equals("cost") ? MIN("keawetan")/keawetan : keawetan/MAX("keawetan");
+//                
+//                double hasil = (bobot("harga")*norm_harga)+(bobot("jml_ulasan_p")*norm_jml_ulasan_p)+(bobot("prestasi_mentor")*norm_prestasi_mentor)+(bobot("kecepatan_server")*norm_kecepatan_server)+(bobot("tk_pemakaian")*norm_tk_pemakaian);
+//                L_hasil.add(hasil);
+//                L_alternatif.add(alternatif);
+//                nomor++;
+//                Object[] rowData = {nomor,alternatif,hasil};
+//                model.addRow(rowData);                 
+//            }
+//            // Mengurutkan list L_hasil secara descending (dari besar ke kecil)
+//            Collections.sort(L_hasil, Collections.reverseOrder());
+//            Collections.sort(L_alternatif, Collections.reverseOrder());            
+//            // Menampilkan data hasil dalam tabel sesuai dengan urutan yang diurutkan
+//            for (int i = 0; i < L_hasil.size(); i++) {
+//            int nomorUrut = i + 1;
+//            tabelSPK.setValueAt(alternatif, i, 1);
+//            double hasil = L_hasil.get(i);
+//            String alternatif = L_alternatif.get(i);
+//            // Menggunakan metode getValueAt untuk mengubah nilai di tabel berdasarkan nomor baris
+//            tabelSPK.setValueAt(nomorUrut, i, 0);
+//            tabelSPK.setValueAt(alternatif, i, 1);
+//            tabelSPK.setValueAt(hasil, i, 2);
+//        }
+////            String hasil_alternatif = rs.getString("alternatif",[]);
+//            double bobotTerbaik = Collections.max(L_hasil); 
+//            jLabel1.setText("Bobot terbaik: "+bobotTerbaik); 
+//            
+//        } catch (Exception e) {
+//        }
+//    }
 
     private double MIN(String kriteria) {
         double min = 0;
