@@ -10,7 +10,7 @@ package oop;
  */
 public class Kriteria {
     private String id;
-    private String kriteria;
+    private String kriterias;
     private String bobot;
     private String label;
 
@@ -22,12 +22,12 @@ public class Kriteria {
         this.id = id;
     }
 
-    public String getKriteria() {
-        return kriteria;
+    public String getKriterias() {
+        return kriterias;
     }
 
-    public void setKriteria(String kriteria) {
-        this.kriteria = kriteria;
+    public void setKriterias(String kriterias) {
+        this.kriterias = kriterias;
     }
 
     public String getBobot() {

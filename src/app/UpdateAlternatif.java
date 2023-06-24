@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import oop.Alternatif;
 
 /**
  *
@@ -16,13 +17,17 @@ import javax.swing.JOptionPane;
  */
 public class UpdateAlternatif extends javax.swing.JDialog {
 
-    Konsumen kons;
+    Alternatif kons;
     /**
      * Creates new form TambahKonsumen
      */
     public UpdateAlternatif(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    UpdateAlternatif() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -200,12 +205,12 @@ public class UpdateAlternatif extends javax.swing.JDialog {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         txtID.setText(kons.getId()); 
-        txtAlternatif.setText(kons.getAlternatif()); 
+        txtAlternatif.setText(kons.getAlternatifs()); 
         txtHarga.setText(kons.getHarga()); 
-        txtJmlUlasanP.setText(kons.getjml_ulasan_p());
-        txtPrestasiMentor.setText(kons.getprestasi_mentor());
-        txtKecepatanServer.setText(kons.getkecepatan_server());
-        txtTKPemakaian.setText(kons.gettk_pemakaian());
+        txtJmlUlasanP.setText(kons.getJml_ulasan_p());
+        txtPrestasiMentor.setText(kons.getPrestasi_mentor());
+        txtKecepatanServer.setText(kons.getKecepatan_server());
+        txtTKPemakaian.setText(kons.getTk_pemakaian());
     }//GEN-LAST:event_formWindowOpened
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -299,7 +304,7 @@ public class UpdateAlternatif extends javax.swing.JDialog {
     private void EditDataAlternatif() {
         try {
             String alternatif = txtAlternatif.getText();
-            String harga = txtAlternatif.getText();
+            String harga = txtHarga.getText();
             String jml_ulasan_p = txtJmlUlasanP.getText();
             String prestasi_mentor = txtPrestasiMentor.getText();
             String kecepatan_server = txtKecepatanServer.getText();
@@ -310,14 +315,14 @@ public class UpdateAlternatif extends javax.swing.JDialog {
                 //siapkan query
                 String sql = "UPDATE alternatif SET "
                         + "alternatif='"+alternatif+"',"
-                        + "harga='"+harga+"',"
-                        + "jml_ulasan_p='"+jml_ulasan_p+"',"
-                        + "prestasi_mentor='"+prestasi_mentor+"',"
-                        + "kecepatan_server='"+kecepatan_server+"',"
-                        + "tk_pemakaian='"+tk_pemakaian
+                        + "harga="+harga+","
+                        + "jml_ulasan_p="+jml_ulasan_p+","
+                        + "prestasi_mentor="+prestasi_mentor+","
+                        + "kecepatan_server="+kecepatan_server+","
+                        + "tk_pemakaian="+tk_pemakaian
                         + "WHERE id='"+kons.getId()+"'";
-//                System.out.println(sql);
-                
+                System.out.println(sql);
+
                 Connection c = Koneksi.konekKeDB();
                 Statement st = c.createStatement();
                 st.executeUpdate(sql);

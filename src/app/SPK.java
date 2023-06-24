@@ -17,14 +17,18 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import oop.Alternatif;
+import oop.Kriteria;
 
 /**
  *
  * @author idham
  */
 public class SPK extends javax.swing.JFrame {
-//    long IDAlternatif;
-//    Alternatif alternatif;
+    long IDAlternatif;
+    Alternatif alternatif;
+    
+    long IDKriteria;
+    Kriteria kriteria;
     
     /**
      * Creates new form SPK
@@ -225,6 +229,11 @@ public class SPK extends javax.swing.JFrame {
         btnEditKriteria.setText("Edit");
 
         btnHapusKriteria.setText("Hapus");
+        btnHapusKriteria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusKriteriaActionPerformed(evt);
+            }
+        });
 
         txtCariKriteria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,6 +286,11 @@ public class SPK extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelKriteria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelKriteriaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabelKriteria);
 
         jPanel4.add(jScrollPane2, java.awt.BorderLayout.CENTER);
@@ -342,6 +356,7 @@ public class SPK extends javax.swing.JFrame {
 
     private void btnEditAlternatifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditAlternatifActionPerformed
         // TODO add your handling code here:
+        UpdateDataAlternatif();
     }//GEN-LAST:event_btnEditAlternatifActionPerformed
 
     private void btnTambahKriteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahKriteriaActionPerformed
@@ -358,33 +373,34 @@ public class SPK extends javax.swing.JFrame {
 
     private void tabelAlternatifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelAlternatifMouseClicked
         // TODO add your handling code here:
-//        int index = tabelAlternatif.getSelectedRow();
-//        if(index != -1){
-//            String id = tabelAlternatif.getValueAt(index, 0).toString();
-//            long TheID = Long.parseLong(id);
-//            IDAlternatif = TheID;
-//            
-//            String Alternatifs = tabelAlternatif.getValueAt(index, 1).toString();
-//            String harga = tabelAlternatif.getValueAt(index, 2).toString();
-//            String jml_ulasan_p = tabelAlternatif.getValueAt(index, 3).toString();
-//            String prestasi_mentor = tabelAlternatif.getValueAt(index, 4).toString();
-//            String kecepatan_server = tabelAlternatif.getValueAt(index, 5).toString();
-//            String tk_pemakaian = tabelAlternatif.getValueAt(index, 4).toString();
-//            
-//            alternatif = new Alternatif();
-//            alternatif.setId(id);
-////            alternatif.setAlternatif(alternatifes);
-//            alternatif.setAlternatifs(Alternatifs);
-//            alternatif.setHarga(harga); 
-//            alternatif.setJml_ulasan_p(jml_ulasan_p); 
-//            alternatif.setPrestasi_mentor(prestasi_mentor); 
-//            alternatif.setKecepatan_server(kecepatan_server); 
-//            alternatif.setTk_pemakaian(tk_pemakaian); 
+        int index = tabelAlternatif.getSelectedRow();
+        if(index != -1){
+            String id = tabelAlternatif.getValueAt(index, 0).toString();
+            long TheID = Long.parseLong(id);
+            IDAlternatif = TheID;
+            
+            String Alternatifs = tabelAlternatif.getValueAt(index, 1).toString();
+            String harga = tabelAlternatif.getValueAt(index, 2).toString();
+            String jml_ulasan_p = tabelAlternatif.getValueAt(index, 3).toString();
+            String prestasi_mentor = tabelAlternatif.getValueAt(index, 4).toString();
+            String kecepatan_server = tabelAlternatif.getValueAt(index, 5).toString();
+            String tk_pemakaian = tabelAlternatif.getValueAt(index, 6).toString();
+            
+            alternatif = new Alternatif();
+            alternatif.setId(id);
+//            alternatif.setAlternatif(alternatifes);
+            alternatif.setAlternatifs(Alternatifs);
+            alternatif.setHarga(harga); 
+            alternatif.setJml_ulasan_p(jml_ulasan_p); 
+            alternatif.setPrestasi_mentor(prestasi_mentor); 
+            alternatif.setKecepatan_server(kecepatan_server); 
+            alternatif.setTk_pemakaian(tk_pemakaian); 
+        }
     }//GEN-LAST:event_tabelAlternatifMouseClicked
 
     private void btnHapusAlternatifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusAlternatifActionPerformed
         // TODO add your handling code here:
-//        HapusDataAlternatif();
+        HapusDataAlternatif();
     }//GEN-LAST:event_btnHapusAlternatifActionPerformed
 
     private void txtCariKriteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariKriteriaActionPerformed
@@ -408,6 +424,35 @@ public class SPK extends javax.swing.JFrame {
                 + "tk_pemakaian LIKE '%"+key+"%'";
         loadAlternatif("SELECT "+where);
     }//GEN-LAST:event_btnCariAlternatifActionPerformed
+
+    private void tabelKriteriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelKriteriaMouseClicked
+        // TODO add your handling code here:
+        int index = tabelKriteria.getSelectedRow();
+        if(index != -1){
+            String id = tabelKriteria.getValueAt(index, 0).toString();
+            long TheIDKriteria = Long.parseLong(id);
+            IDKriteria = TheIDKriteria;
+            
+            String Kriterias = tabelKriteria.getValueAt(index, 1).toString();
+            String bobot = tabelKriteria.getValueAt(index, 2).toString();
+            String label = tabelKriteria.getValueAt(index, 3).toString();
+//            String prestasi_mentor = tabelKriteria.getValueAt(index, 4).toString();
+//            String kecepatan_server = tabelAlternatif.getValueAt(index, 5).toString();
+//            String tk_pemakaian = tabelAlternatif.getValueAt(index, 6).toString();
+            
+            kriteria = new Kriteria();
+            alternatif.setId(id);
+//            alternatif.setAlternatif(alternatifes);
+            kriteria.setKriterias(Kriterias);
+            kriteria.setBobot(bobot); 
+            kriteria.setLabel(label); 
+        }
+    }//GEN-LAST:event_tabelKriteriaMouseClicked
+
+    private void btnHapusKriteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusKriteriaActionPerformed
+        // TODO add your handling code here:
+        HapusDataKriteria();
+    }//GEN-LAST:event_btnHapusKriteriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,8 +483,11 @@ public class SPK extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new SPK().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new SPK().setVisible(true);
+            }
         });
         
     }
@@ -522,7 +570,7 @@ public class SPK extends javax.swing.JFrame {
                     //YES
                     Connection c = Koneksi.konekKeDB();
                     Statement st = c.createStatement();
-                    String sql = "DELETE FROM konsumen WHERE id_konsumen='"+IDAlternatif+"'";
+                    String sql = "DELETE FROM alternatif WHERE id='"+IDAlternatif+"'";
                     //eksekusi query
                     st.executeUpdate(sql);
                     //refresh view table
@@ -533,6 +581,14 @@ public class SPK extends javax.swing.JFrame {
             }
         }else {
             JOptionPane.showMessageDialog(this, "Anda belum memilih Data"); 
+        }
+    }
+     
+     private void UpdateDataAlternatif() {
+        if(IDAlternatif > 0){
+            UpdateAlternatif updateAlternatif = new UpdateAlternatif(this, true);
+            updateAlternatif.kons = alternatif;
+            updateAlternatif.setVisible(true); 
         }
     }
 
@@ -563,6 +619,36 @@ public class SPK extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }
+    
+    private void HapusDataKriteria() {
+        if(IDKriteria > 0){
+            try {
+                Object[] tombol = {"YA", "Tidak"};
+                int option = JOptionPane.showOptionDialog(this, 
+                        "Apakah anda ingin menghapus data?", 
+                        "Konfirmasi", 
+                        JOptionPane.YES_NO_OPTION, 
+                        JOptionPane.INFORMATION_MESSAGE, null, tombol, 0);
+                if(option == 0){
+                    //YA
+                    //YES
+                    Connection c = Koneksi.konekKeDB();
+                    Statement st = c.createStatement();
+                    String sql = "DELETE FROM kriteria WHERE id='"+IDKriteria+"'";
+                    //eksekusi query
+                    st.executeUpdate(sql);
+                    //refresh view table
+                    loadAlternatif(""); 
+                    JOptionPane.showMessageDialog(this, "Data telah dihapus");
+                }                
+            } catch (HeadlessException | SQLException e) {
+            }
+        }else {
+            JOptionPane.showMessageDialog(this, "Anda belum memilih Data"); 
+        }
+    }
+    
+    
 
     private void SPK() {
         try {

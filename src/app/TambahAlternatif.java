@@ -55,6 +55,12 @@ public class TambahAlternatif extends javax.swing.JDialog {
 
         jLabel1.setText("Alternatif");
 
+        txtAlternatif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAlternatifActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Harga");
 
         btnSimpan.setText("Simpan");
@@ -183,6 +189,10 @@ public class TambahAlternatif extends javax.swing.JDialog {
     private void txtKecepatanServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKecepatanServerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtKecepatanServerActionPerformed
+
+    private void txtAlternatifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlternatifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAlternatifActionPerformed
 
     /**
      * @param args the command line arguments
